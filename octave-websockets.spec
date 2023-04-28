@@ -1,26 +1,28 @@
 %global octpkg websockets
 
-Summary:	A Websockets package for GNU Octave, based in the sockets package.
-Name:		octave-%{octpkg}
+Summary:	Simple implementation of the Websockets protocol for GNU Octave
+Name:		octave-websockets
 Version:	0.1.0
-Release:	1
-Url:		https://github.com/gnu-octave/octave-%{octpkg}
-Source0:	%{url}/archive/v%{version}/%{octpkg}-%{version}.tar.gz
+Release:	2
 License:	GPLv3+
 Group:		Sciences/Mathematics
-BuildArch:	noarch
+#Url:		https://packages.octave.org/websockets/
+Url:		https://github.com/gnu-octave/octave-websockets/
+Source0:	https://github.com/gnu-octave/octave-websockets/archive/v%{version}/websockets-%{version}.tar.gz
 
-BuildRequires:	octave-devel >= 3.6.0
-BuildRequires:	octave-sockets >= 1.2.0
+BuildRequires:  octave-devel >= 3.2.0
+BuildRequires:  octave-sockets >= 1.2.0
 
 Requires:	octave(api) = %{octave_api}
-Requires:	octave-sockets >= 1.2.0
+Requires:  	octave-sockets >= 1.2.0
 
 Requires(post): octave
 Requires(postun): octave
 
+BuildArch:	noarch
+
 %description
-A Websockets package for GNU Octave, based in the sockets package.
+Simple implementation of the Websockets protocol for GNU Octave.
 
 %files
 %license COPYING
@@ -31,10 +33,7 @@ A Websockets package for GNU Octave, based in the sockets package.
 #---------------------------------------------------------------------------
 
 %prep
-%autosetup -p1 -n %{name}-%{version}
-
-# remove backup files
-#find . -name \*~ -delete
+%autosetup -p1
 
 %build
 %octave_pkg_build
