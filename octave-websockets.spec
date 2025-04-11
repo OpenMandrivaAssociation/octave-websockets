@@ -3,7 +3,7 @@
 Summary:	Simple implementation of the Websockets protocol for GNU Octave
 Name:		octave-websockets
 Version:	0.1.0
-Release:	2
+Release:	3
 License:	GPLv3+
 Group:		Sciences/Mathematics
 #Url:		https://packages.octave.org/websockets/
